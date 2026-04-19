@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "zh_Hans"
+
+collections:
+  - name: "posts"
+    label: "观点文章"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "标签", name: "tag", widget: "select", options: ["随想", "AI", "工具", "生活", "职场"] }
+      - { label: "摘要", name: "excerpt", widget: "string", required: false }
+      - { label: "正文", name: "body", widget: "markdown" }
